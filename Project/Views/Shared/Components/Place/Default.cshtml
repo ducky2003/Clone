@@ -1,0 +1,29 @@
+﻿@model IList<Place>
+<!-- Destination Start -->
+<div class="container-xxl py-5 destination">
+    <div class="container">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <h6 class="section-title bg-white text-center text-primary px-3">Địa điểm nổi tiếng</h6>
+            <h1 class="mb-5">Địa điểm bạn có thể thích</h1>
+        </div>
+        <div class="row g-3">
+            
+                <div class="row">
+                    @foreach(var item in Model)
+                    {
+                    <div class=" col-md-4 col-sm-6 p-4 zoomIn">
+                            <a class="position-relative d-block overflow-hidden" href="">
+                            <img class="img-fluid" src="@item.PlaceImage" alt="" style="width:373px; height:248px">
+                                <div class="bg-white text-danger fw-bold position-absolute top-0 start-0 m-3 py-1 px-2">@item.PlaceSale</div>
+                                <div class="bg-white text-primary fw-bold position-absolute bottom-0 end-0 m-3 py-1 px-2">@item.PlaceName</div>
+                            </a>
+                        </div>                        
+                    }                                       
+                </div>           
+       </div>
+        <a type="button" class="btn btn-primary float-end" href="/Admin/Place">
+            <i class="bi bi bi-pencil me-1"></i> Tùy chỉnh
+        </a>
+    </div>
+</div>
+<!-- Destination End -->
