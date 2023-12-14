@@ -1,4 +1,6 @@
 ﻿@model IList<Place>
+@using Project.Utilities;
+@using Project.Models;
 <!-- Destination Start -->
 <div class="container-xxl py-5 destination">
     <div class="container">
@@ -11,8 +13,9 @@
                 <div class="row">
                     @foreach(var item in Model)
                     {
+                    string urls = Functions.TitleSlugGenerator("place", item.PlaceName, item.PlaceID);
                     <div class=" col-md-4 col-sm-6 p-4 zoomIn">
-                            <a class="position-relative d-block overflow-hidden" href="">
+                            <a class="position-relative d-block overflow-hidden" href="/@urls">
                             <img class="img-fluid" src="@item.PlaceImage" alt="" style="width:373px; height:248px">
                                 <div class="bg-white text-danger fw-bold position-absolute top-0 start-0 m-3 py-1 px-2">@item.PlaceSale</div>
                                 <div class="bg-white text-primary fw-bold position-absolute bottom-0 end-0 m-3 py-1 px-2">@item.PlaceName</div>

@@ -16,6 +16,7 @@ namespace Project.Models
         public string? Link { get; set; }
         public int MenuOrder { get; set; }
         public int Position { get; set; }
+        public string? AreaName { get; set; }
 
     }
 }

@@ -4,6 +4,7 @@ using Project.Models;
 namespace Project.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Route("Admin/[controller]")]
     public class PlaceController : Controller
     {            
             private readonly DataContext _dataContext;
@@ -16,6 +17,8 @@ namespace Project.Areas.Admin.Controllers
                 var query = _dataContext.Places.OrderBy(m => m.PlaceID).ToList();
                 return View(query);
             }
+            [HttpGet]
+            [Route("Delete/{id:int}")]
             public async Task<IActionResult> Delete(int? id)
             {
                 if (id == null || id == 0)
@@ -48,6 +51,8 @@ namespace Project.Areas.Admin.Controllers
                 _dataContext.SaveChanges();
                 return RedirectToAction("Index");
             }
+            [HttpGet]
+            [Route("Create")]
             public IActionResult Create()
             {
                 var query = (from i in _dataContext.Places

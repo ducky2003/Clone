@@ -10,12 +10,12 @@
         <div class="row pb-2">
             <h2>Sửa</h2>
         </div>
-        <form asp-action="Edit" method="post" asp-controller="Tip" asp-area="Admin">
+        <form asp-action="Edit" method="post" >
             @Html.AntiForgeryToken()
             <div class="form-row">
-                <input type="Text" class="form-control mb-3" asp-for="TipTitle" type="hidden">
+                <input type="Text" class="form-control mb-3" asp-for="TipID" type="hidden">
                 <div class="form-group col-md-6">
-                    <label asp-for="TipTitle">MenuName</label>
+                    <label asp-for="TipTitle">TipTitle</label>
                     <input type="text" class="form-control mb-3" asp-for="TipTitle" placeholder="Insert Tip Title">
                     <span asp-validation-for="TipTitle" class="alert-danger"></span>
                 </div>
@@ -34,7 +34,7 @@
                 </div>
             </div>
             <button type="submit" class="btn btn-lg btn-primary p-2"><i class="bi bi-file-plus-fill"></i>Save</button>
-            <a asp-controller="Menu" asp-action="Index" class=" btn btn-lg btn-warning p-2">Back</a>
+            <a asp-controller="Tip" asp-action="Index" class=" btn btn-lg btn-warning p-2">Back</a>
         </form>
     </div>
 </main>

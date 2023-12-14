@@ -1,0 +1,75 @@
+﻿@using Project.Models
+@model IList<Pack>
+<main id="main" class="main">
+    <div class="pagetitle">
+        <h2>Địa điểm du lịch</h2>
+    </div>
+    <p>
+        <a type="button" class="btn btn-success" href="/Admin/Pack/Create">
+            <i class="bi bi-file-earmark-text me-1"></i> Thêm
+        </a>
+    </p>
+    <section class="section dashboard">
+        <div class="row">
+
+            <!-- Left side columns -->
+            <div class="row">
+                <!-- Recent Sales -->
+                <div class="col-12">
+                    <div class="card recent-sales overflow-auto">
+                        <div class="card-body mt-4">
+                            <table class="table table-borderless datatable">
+                                <thead>
+                                    <tr>
+                                        <th class="col-1 text-center">#</th>
+                                        <th class="col-2 text-center">Tên địa điểm</th>
+                                        <th class="col-1 text-center">Số người</th>
+                                        <th class="col-1 text-center">Thời gian</th>
+                                        <th class="col-2 text-center">Giá</th>                                       
+                                        <th class="col-2 text-center">Hiện/Ẩn</th>
+                                        <th class="col-2 text-center">Chức năng</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <th class="text-center" scope="row">@item.PackID</th>
+                                            <td class="text-center">
+                                                <a href="#" class="text-primary text-center">@item.PlaceName</a>
+                                            </td>
+                                            <td class="text-center">
+                                                <a href="#" class="text-primary text-center">@item.PackCount</a>
+                                            </td>
+                                            <td class="text-center">
+                                                <a href="#" class="text-primary text-center">@item.PackDate</a>
+                                            </td>
+                                            <td class="text-center">
+                                                <a href="#" class="text-primary text-center">@item.PackPrice</a>
+                                            </td>
+                                            <td class="text-center">@item.isActive</td>
+                                            <td class="text-center">
+                                                <a href="/Admin/Pack/Edit/@item.PackID" class="btn btn-primary btn-sm"
+                                                   title="Sửa nội dung">
+                                                    <i class=" bi bi-pencil"></i>
+                                                </a>
+                                                <a href="/Admin/Pack/Delete/@item.PackID" class="btn btn-danger btn-sm"
+                                                   title="Xóa">
+                                                    <i class="bi bi-trash"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    }
+
+
+                                </tbody>
+                            </table>
+
+                        </div>
+
+                    </div>
+                </div><!-- End Recent Sales -->
+            </div>
+        </div>
+    </section>
+</main>

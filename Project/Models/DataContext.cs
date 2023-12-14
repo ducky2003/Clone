@@ -12,5 +12,8 @@ namespace Project.Models
         public DbSet<TravelTip> TravelTipss { get; set; }
         public DbSet<AdminMenu> AdminMenus { get; set; }
         public DbSet<Place> Places { get; set; }
+        public DbSet<Pack> Packs { get; set; }  
+        public DbSet<Service> Services { get; set; }
+        public DbSet<User> Users { get; set; }
     }
 }
