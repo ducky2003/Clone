@@ -1,11 +1,12 @@
-﻿@model Users;
-@    using Project.Utilities;
-    using Project.Areas.Admin.Models;
+﻿@using Project.Areas.Admin.Models;
+@using Project.Utilities;
+@model Users;
 @{
-    Layout = "";
+	Layout = "";
 }
 <!doctype html>
 <html lang="en">
+
 <head>
 	<title>Login 10</title>
 	<meta charset="utf-8">
@@ -18,6 +19,7 @@
 	<link rel="stylesheet" href="~/admin/assets1/css/style.css">
 
 </head>
+
 <body class="img" style="background-image:url(/admin/assets1/images/bg.jpg)">
 	<section class="ftco-section">
 		<div class="container">
@@ -28,18 +30,22 @@
 			</div>
 			<div class="row justify-content-center">
 				<div class="col-md-6 col-lg-4">
-					<div class="login-wrap p-0">						
+					<div class="login-wrap p-0">
 						<form class="signin-form" asp-controller="Register" asp-action="Index">
 
 							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Tên người dùng" asp-for="UserName" required>
+								<input type="text" class="form-control" placeholder="Tên người dùng" asp-for="UserName"
+									required>
 							</div>
 							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Email" asp-for="UserEmail" required>
+								<input type="text" class="form-control" placeholder="Email" asp-for="UserEmail"
+									required>
 							</div>
 							<div class="form-group">
-								<input id="password-field" type="password" class="form-control" placeholder="Mật khẩu" asp-for="Pass" required>
-								<span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+								<input id="password-field" type="password" class="form-control" placeholder="Mật khẩu"
+									asp-for="Pass" required>
+								<span toggle="#password-field"
+									class="fa fa-fw fa-eye field-icon toggle-password"></span>
 							</div>
 							<div class="col-12 text-center text-danger">
 								<h6>@Functions._MessEmail</h6>
@@ -49,10 +55,10 @@
 							</div>
 							<div class="form-group d-none">
 								<input asp-for="isActive" class="form-control" value="True" />
-							</div>	
-							
+							</div>
+
 						</form>
-						
+
 					</div>
 				</div>
 			</div>
@@ -64,5 +70,5 @@
 	<script src="~/admin/assets1/js/bootstrap.min.js"></script>
 	<script src="~/admin/assets1/js/main.js"></script>
 </body>
-</html>
 
+</html>
