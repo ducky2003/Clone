@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Project.Areas.Admin.Models;
 using Project.Models;
+using Project.Utilities;
+
 namespace Project.Areas.Admin.Controllers
 {
     [Area("Admin")]
@@ -15,6 +17,10 @@ namespace Project.Areas.Admin.Controllers
         }
         public IActionResult Index()
         {
+            if (Functions.IsLogined())
+                return NotFound();
+            if (!Functions.IsLogin())
+                return RedirectToAction("Index", "Login");
             var query = _dataContext.Menus.OrderBy(m => m.MenuID).ToList();
             return View(query);
         }

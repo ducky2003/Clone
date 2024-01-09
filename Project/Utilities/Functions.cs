@@ -1,4 +1,6 @@
 ﻿
+using Project.Areas.Admin.Models;
+using Project.Models;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -6,11 +8,14 @@ namespace Project.Utilities
 {
     public class Functions
     {
+       
+
         public static int _UserID = 0;
         public static string _UserName = String.Empty;
         public static string _UserEmail = String.Empty;
         public static string _Mess = String.Empty;
         public static string _MessEmail = String.Empty;
+        
         public static string TitleSlugGenerator(string type, string title, long id)
         {
             string sTitle = type + "-" + SlugGenerator.SlugGenerator.GenerateSlug(title) + "-" + id.ToString() + ".html";
@@ -40,7 +45,13 @@ namespace Project.Utilities
         }
         public static bool IsLogin()
         {
-            if (string.IsNullOrEmpty(Functions._UserName) || string.IsNullOrEmpty(Functions._UserEmail) || (Functions._UserID == 0))
+            if (string.IsNullOrEmpty(Functions._UserName) || string.IsNullOrEmpty(Functions._UserEmail) || (Functions._UserID <= 0))
+                return false;
+            return true;
+        }
+        public static bool IsLogined()
+        {
+            if (string.IsNullOrEmpty(Functions._UserName) || string.IsNullOrEmpty(Functions._UserEmail) || (Functions._UserID == 1))
                 return false;
             return true;
         }

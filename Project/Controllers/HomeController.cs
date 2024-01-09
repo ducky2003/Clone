@@ -18,6 +18,7 @@ namespace Project.Controllers
 
         public IActionResult Index()
         {
+            
             return View();
         }
 
@@ -55,7 +56,6 @@ namespace Project.Controllers
                 return NotFound();
             return View(post);
         }
-        [Route("/pre-{slug}-{id:long}.html", Name = "Pre")]
         
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

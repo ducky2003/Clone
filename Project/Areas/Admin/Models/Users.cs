@@ -1,9 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+
 namespace Project.Areas.Admin.Models
 {
-    [Table("User")]
-    public class User
+    [Table("Users")]
+    public class Users
     {
         [Key]
         public int UserID { get; set; }
@@ -11,5 +12,7 @@ namespace Project.Areas.Admin.Models
         public string? UserEmail { get; set; }
         public string? Pass { get; set; }
         public bool? isActive { get; set; }
+        public string? Sodienthoai { get; set; }
+        public string? Diachi { get; set; }
     }
 }
