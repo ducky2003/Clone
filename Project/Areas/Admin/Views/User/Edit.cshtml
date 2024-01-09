@@ -1,0 +1,80 @@
+﻿@model IList<Users>
+@using Project.Areas.Admin.Models
+@{
+    Layout = "";
+}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Login 10</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="~/admin/assets1/css/style.css">
+
+</head>
+<body class="img" style="background-image:url(/admin/assets1/images/useredit.jpg)">
+    
+    <main id="main" class=" main">
+        
+        <div class="container shadow p-5">
+            <div class="row pb-2">
+                <h2 class="text-light">Sửa thông tin tài khoản</h2>
+            </div>
+            <form asp-action="Edit" method="post">
+                @Html.AntiForgeryToken()
+                <div class="form-row">
+                    <input type="Text" class="form-control mb-3" asp-for="UserID" type="hidden">
+                    <div class="form-group col-md-6">
+                        <label asp-for="UserName">Tên người dùng</label>
+                        <input type="text" class="form-control mb-3" asp-for="UserName" placeholder="Nhập tên">
+                        <span asp-validation-for="UserName" class="alert-danger"></span>
+                    </div>
+                </div>
+                <div class="form-row">
+                   
+                    <div class="form-group col-md-6">
+                        <label asp-for="Sodienthoai">Số điện thoại</label>
+                        <input type="text" class="form-control mb-3" asp-for="Sodienthoai" placeholder="Nhập số điện thoại">
+                        <span asp-validation-for="Sodienthoai" class="alert-danger"></span>
+                    </div>
+                </div>
+                <div class="form-row">
+                    
+                    <div class="form-group col-md-6">
+                        <label asp-for="Diachi">Địa chỉ</label>
+                        <input type="text" class="form-control mb-3" asp-for="Diachi" placeholder="Nhập địa chỉ">
+                        <span asp-validation-for="Diachi" class="alert-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <lable asp-for="UserEmail">User Email</lable>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" asp-for="UserEmail" placeholder="Nhập Email"></textarea>
+                        <span asp-validation-for="UserEmail" class="alert-danger"></span>
+                    </div>
+                    <div class="form-group mt-5 mb-5">
+                        <lable>
+                            @Html.CheckBox("IsActive", Model.isActive)
+                            Show
+                        </lable>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-lg btn-primary p-2"><i class="bi bi-file-plus-fill"></i>Save</button>
+                <a asp-controller="User" asp-action="Index" class=" btn btn-lg btn-warning p-2">Back</a>
+            </form>
+        </div>
+    </main>
+    <script src="~/admin/assets1/js/jquery.min.js"></script>
+    <script src="~/admin/assets1/js/popper.js"></script>
+    <script src="~/admin/assets1/js/bootstrap.min.js"></script>
+    <script src="~/admin/assets1/js/main.js"></script>
+</body>
+</html>
+

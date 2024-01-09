@@ -1,57 +1,68 @@
-﻿<!-- Section: Design Block -->
-<section class=" text-center text-lg-start">
-  <style>
-    .rounded-t-5 {
-      border-top-left-radius: 0.5rem;
-      border-top-right-radius: 0.5rem;
-    }
-  </style>
-  <div class="card mb-3">
-    <div class="row g-0 d-flex align-items-center">
-      <div class="col-lg-4 d-none d-lg-flex">
-        <img src="https://mdbootstrap.com/img/new/ecommerce/vertical/004.jpg" alt="Trendy Pants and Shoes"
-          class="w-100 rounded-t-5 rounded-tr-lg-0 rounded-bl-lg-5" />
-      </div>
-      <div class="col-lg-8">
-        <div class="card-body py-5 px-md-5">
+﻿@model Users;
+@    using Project.Utilities;
+    using Project.Areas.Admin.Models;
+@{
+    Layout = "";
+}
+<!doctype html>
+<html lang="en">
+<head>
+	<title>Login 10</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-          <form>
-            <!-- Email input -->
-            <div class="form-outline mb-4">
-              <input type="email" id="form2Example1" class="form-control" />
-              <label class="form-label" for="form2Example1">Email address</label>
-            </div>
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
 
-            <!-- Password input -->
-            <div class="form-outline mb-4">
-              <input type="password" id="form2Example2" class="form-control" />
-              <label class="form-label" for="form2Example2">Password</label>
-            </div>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-            <!-- 2 column grid layout for inline styling -->
-            <div class="row mb-4">
-              <div class="col d-flex justify-content-center">
-                <!-- Checkbox -->
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="form2Example31" checked />
-                  <label class="form-check-label" for="form2Example31"> Remember me </label>
-                </div>
-              </div>
+	<link rel="stylesheet" href="~/admin/assets1/css/style.css">
 
-              <div class="col">
-                <!-- Simple link -->
-                <a href="#!">Forgot password?</a>
-              </div>
-            </div>
+</head>
+<body class="img" style="background-image:url(/admin/assets1/images/bg.jpg)">
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<h2 class="heading-section">Đăng ký tài khoản</h2>
+				</div>
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-md-6 col-lg-4">
+					<div class="login-wrap p-0">						
+						<form class="signin-form" asp-controller="Register" asp-action="Index">
 
-            <!-- Submit button -->
-            <button type="button" class="btn btn-primary btn-block mb-4">Sign in</button>
+							<div class="form-group">
+								<input type="text" class="form-control" placeholder="Tên người dùng" asp-for="UserName" required>
+							</div>
+							<div class="form-group">
+								<input type="text" class="form-control" placeholder="Email" asp-for="UserEmail" required>
+							</div>
+							<div class="form-group">
+								<input id="password-field" type="password" class="form-control" placeholder="Mật khẩu" asp-for="Pass" required>
+								<span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+							</div>
+							<div class="col-12 text-center text-danger">
+								<h6>@Functions._MessEmail</h6>
+							</div>
+							<div class="form-group">
+								<button type="submit" class="form-control btn btn-primary submit px-3">Đăng ký</button>
+							</div>
+							<div class="form-group d-none">
+								<input asp-for="isActive" class="form-control" value="True" />
+							</div>	
+							
+						</form>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 
-          </form>
+	<script src="~/admin/assets1/js/jquery.min.js"></script>
+	<script src="~/admin/assets1/js/popper.js"></script>
+	<script src="~/admin/assets1/js/bootstrap.min.js"></script>
+	<script src="~/admin/assets1/js/main.js"></script>
+</body>
+</html>
 
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- Section: Design Block -->

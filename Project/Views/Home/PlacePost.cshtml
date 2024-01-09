@@ -10,12 +10,14 @@
                     @foreach(var item in Model)
                     {
                         <h1 class="mb-4"> @item.PlaceName</h1>
-                        <p class="text-justify">@item.PlaceContent</p>
+                        
                         <img class="pb-4 img-fluid"  src="@item.PlaceImage"/>
+                        <p class="text-justify">@item.PlaceContent</p>
                     }
                     
                     
                 </div>
+                
                 <!-- Blog Detail End -->
                 <!-- Comment List Start -->
                 @*<div class="mb-5">
@@ -84,7 +86,11 @@
                 </div>*@
                 <!-- Comment Form End -->
             </div>
-
+            <div class="col-lg-4">
+                <!-- Recent Post Start -->
+                @await Component.InvokeAsync("RecentPost")
+                <!-- Recent Post End -->
+            </div>
             <!-- Sidebar Start -->
             @*<div class="col-lg-4">
                 <!-- Search Form Start -->

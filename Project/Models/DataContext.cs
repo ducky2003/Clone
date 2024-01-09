@@ -14,6 +14,7 @@ namespace Project.Models
         public DbSet<Place> Places { get; set; }
         public DbSet<Pack> Packs { get; set; }  
         public DbSet<Service> Services { get; set; }
-        public DbSet<User> Users { get; set; }
+        public DbSet<Users> Userss { get; set; } 
+        public DbSet<Slide> Slides { get; set; }
     }
 }

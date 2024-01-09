@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Project.Models;
 using Microsoft.AspNetCore.Mvc;
+using Project.Utilities;
 
 namespace Project.Areas.Admin.Controllers
 {
@@ -16,6 +17,10 @@ namespace Project.Areas.Admin.Controllers
         }
         public IActionResult Index()
         {
+            if (Functions.IsLogined())
+                return NotFound();
+            if (!Functions.IsLogin())
+                return RedirectToAction("Index", "Login");
             var query = _dataContext.Packs.OrderBy(m => m.PackID).ToList();
             return View(query);
         }

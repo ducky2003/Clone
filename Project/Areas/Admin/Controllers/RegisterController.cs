@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Project.Areas.Admin.Models;
 using Project.Models;
 using Project.Utilities;
-using Project.Areas.Admin.Models;
 namespace Project.Areas.Admin.Controllers
 {
     [Area("Admin")]
@@ -11,23 +11,24 @@ namespace Project.Areas.Admin.Controllers
         private readonly DataContext _dataContext;
         public RegisterController(DataContext dataContext)
         {
-            dataContext = _dataContext;
+            _dataContext = dataContext;
         }
         public IActionResult Index()
         {
             return View();
         }
+
         [HttpPost]
-        public IActionResult Index(User user)
+        public IActionResult Index(Users user)
         {
             if (user == null)
             {
                 return NotFound();
             }
-            var check = _dataContext.Users.Where(m => m.UserEmail == user.UserEmail).FirstOrDefault();
+            var check = _dataContext.Userss.Where(m => m.UserEmail == user.UserEmail).FirstOrDefault();
             if (check != null)
             {
-                Functions._MessEmail = string.Empty;
+                Functions._MessEmail = "Email đã tồn tại";
                 return RedirectToAction("Index", "Register");
             }
             Functions._MessEmail = string.Empty;

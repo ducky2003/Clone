@@ -1,4 +1,8 @@
-﻿
+﻿@using Microsoft.AspNetCore.Authorization
+@using Project.Utilities
+@using Project.Areas.Admin.Models
+@{
+   }
 @model IList<Menu>
  <!-- Navbar & Hero Start -->
 <div class="container-fluid position-relative p-0">
@@ -18,7 +22,7 @@
                     var Smenu = Model.Where(p => p.ParentID == Pid).OrderBy(p => p.MenuOrder).ToList();
                     @if(Smenu.Count == 0)
                     {
-                        <a href="index.html" class="nav-item nav-link">@menu.MenuName</a>
+                        <a href="/@menu.AreaName/@menu.ControllerName/@menu.ActionName" class="nav-item nav-link">@menu.MenuName</a>
 
                     }
                     else
@@ -37,7 +41,45 @@
                     }
                 }
             </div>
-            <a href="" class="btn btn-primary rounded-pill py-2 px-4">Đăng Nhập</a>
+            
+            @if (!Functions.IsLogin())
+            {
+                <a href="/Admin/Login/Index" class="btn btn-primary rounded-pill py-2 px-4">Đăng Nhập</a>
+            }
+            else
+            {
+                <div class="navbar-nav  py-0">                                                                                                     
+                    <div class="nav-item dropdown p-2">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">@Functions._UserName</a>
+                        <div class="dropdown-menu m-0">
+                            @if (!Functions.IsLogined())
+                                {
+                                <a class="dropdown-item d-flex align-items-center" href="/Admin/Home/Index">
+                                    <i class="bi bi-box-arrow-right me-2"></i>
+                                    <span>Admin</span>
+                                </a>
+                                    <a class="dropdown-item d-flex align-items-center" href="/Admin/Home/Logout">
+                                        <i class="bi bi-box-arrow-right me-2"></i>
+                                        <span>Đăng xuất</span>
+                                </a>
+                                
+                                }
+                            else
+                                {
+                               
+                                   <a class="dropdown-item d-flex align-items-center" href="/Admin/Home/Logout">
+                                         <i class="bi bi-box-arrow-right me-2"></i>
+                                         <span>Đăng xuất</span>
+                                    </a>
+                                <a class="dropdown-item d-flex align-items-center" href="/Admin/User/Edit">
+                                    <i class="bi bi-box-arrow-right me-2"></i>
+                                    <span>Hồ sơ cá nhân</span>
+                                </a>
+                                }                                                                                                   
+                        </div>
+                    </div>                                         
+                </div>
+            }                                 
         </div>
     </nav>
 
